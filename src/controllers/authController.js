@@ -1,5 +1,5 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
 const User = require('../models/User');
 
 const router = express.Router();
@@ -9,24 +9,34 @@ router.post('/register', async (req, res) => {
     //repassa os parâmetros da url request (muito dahora) pra const user
 //    console.log(req.body);
 
-
 //quebrei a cabeça, mas não sei por que o await user.create não funcionou
-//    let usuario = new User(req.body);
 
+
+
+
+
+    let usuario = new User(req.body);
 
     usuario.save(function (err, usuario) {
       res.send(usuario)
       console.log("salvo");
       if (err) return console.error(err);
     });
-/*
 
+
+
+
+
+
+
+
+
+/*
     let batata = await User.create(req.body);
     console.log(batata);
     console.log(batata.name);
 //    console.log(user);
 */
-
 
 //    console.log(batata);
 //    console.log(batata.name);
@@ -41,6 +51,7 @@ router.post('/register', async (req, res) => {
 
 module.exports = app => app.use('/auth', router);
 
+/*
 let usuario = new User({
   "name": "Marcos",
   "email": "joao@joao.com.br",
@@ -49,8 +60,12 @@ let usuario = new User({
 
 console.log(usuario);
 
+
 usuario.save(function (err, usuario) {
   res.send(usuario)
   console.log("salvo");
   if (err) return console.error(err);
+
+
 });
+*/

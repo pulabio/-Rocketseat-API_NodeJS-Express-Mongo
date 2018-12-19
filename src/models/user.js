@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
+//require("../database/Index")
 
+mongoose.connect('mongodb://localhost/test')
+
+console.log("models/user.js está rodando");
 
 const UserSchema = new mongoose.Schema({
   name: {
